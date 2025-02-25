@@ -32,4 +32,6 @@ modules:
         - org.gnome.eog
     user: {} # Also add Flathub user repo, but no user packages
 
+  - type: gschema-overrides
+
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
