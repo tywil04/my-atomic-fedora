@@ -1,8 +1,8 @@
 [credential]
-  helper = /usr/libexec/git-core/git-credential-libsecret
+  helper = "distrobox-host-exec /usr/libexec/git-core/git-credential-libsecret"
 
 [core]
-  editor = distrobox-host-exec flatpak run re.sonny.Commit
+  editor = "distrobox-host-exec flatpak run re.sonny.Commit"
 
 [color]
   ui = true
