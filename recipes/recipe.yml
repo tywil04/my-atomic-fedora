@@ -16,6 +16,8 @@ modules:
       - nano
       - git
       - distrobox
+      - libsecret
+      - git-credential-libsecret
     remove:
       - firefox
       - firefox-langpacks
