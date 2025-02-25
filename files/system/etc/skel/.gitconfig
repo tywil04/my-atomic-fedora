@@ -1,1 +1,15 @@
-.
+[credential]
+  helper = /usr/libexec/git-core/git-credential-libsecret
+
+[core]
+  editor = distrobox-host-exec flatpak run re.sonny.Commit
+
+[color]
+  ui = true
+
+[user]
+  name = tywil04
+  email = github.mandatory@pretend.email
+
+[init]
+  defaultBranch = main
