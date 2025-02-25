@@ -13,3 +13,6 @@
 
 [init]
   defaultBranch = main
+
+[re.sonny.Commit]
+  auto-capitalize-title=false
