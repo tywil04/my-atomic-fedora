@@ -1,0 +1,14 @@
+[org.gnome.desktop.peripherals.pointingstick]
+accel-profile='flat'
+
+[org.gnome.desktop.peripherals.touchpad]
+accel-profile='flat'
+
+[org.gnome.desktop.interface]
+font-hinting='full'
+font-antialiasing='rgba'
+gtk-theme='adw-gtk3-dark'
+
+[org.gnome.mutter]
+attach-modal-dialogs=true
+center-new-windows=true
