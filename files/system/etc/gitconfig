@@ -1,5 +1,5 @@
 [credential]
-  helper = "distrobox-host-exec /usr/libexec/git-core/git-credential-libsecret"
+  helper = "!f() { distrobox-host-exec /usr/libexec/git-core/git-credential-libsecret \"$@\"; }; f"
 
 [core]
   editor = "distrobox-host-exec flatpak run re.sonny.Commit"

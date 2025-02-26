@@ -8,7 +8,6 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 41
 
 modules:
-  # copy all files in files/system to the images root folder
   - type: files
     files:
       - source: system
@@ -26,28 +25,17 @@ modules:
       - firefox
       - firefox-langpacks
       - toolbox
+      - htop
+      - nvtop
 
   - type: flatpak
     source: local
     install:
       - app.zen_browser.zen
       - re.sonny.Commit
-      - org.gtk.Gtk3theme.adw-gtk3 
+      - org.gtk.Gtk3theme.adw-gtk3
       - org.gtk.Gtk3theme.adw-gtk3-dark
-
-  # - type: default-flatpaks
-  #   notify: false # Send notification after install/uninstall is finished (true/false)
-  #   system:
-  #     repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-  #     repo-name: flathub
-  #     repo-title: FlatHub
-  #     install:
-  #       - app.zen_browser.zen
-  #       - re.sonny.Commit
-  #       - org.gtk.Gtk3theme.adw-gtk3 
-  #       - org.gtk.Gtk3theme.adw-gtk3-dark
-  #   user: {} # Also add Flathub user repo, but no user packages
 
   - type: gschema-overrides
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing
