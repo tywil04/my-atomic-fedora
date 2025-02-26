@@ -12,6 +12,8 @@ cp -r "$MODULE_DIRECTORY"/flatpak/tylers-os-post-rebase-setup /usr/bin/tylers-os
 chmod +x /usr/bin/tylers-os-post-rebase-setup
 cp -r "$MODULE_DIRECTORY"/flatpak/tylers-os-post-rebase-setup.service /usr/lib/systemd/system/tylers-os-post-rebase-setup.service
 
+sysctl kernel.unprivileged_userns_clone=1
+
 echo "Making flatpak directory"
 mkdir -p "/usr/share/tylers-os/flatpak/offline-repo"
 
