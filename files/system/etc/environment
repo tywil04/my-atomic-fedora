@@ -1,1 +1,2 @@
-GIT_CONFIG_GLOBAL=/etc/gitconfig
+GIT_CONFIG=/etc/gitconfig
+GIT_CONFIG_GLOBAL=$GIT_CONFIG
