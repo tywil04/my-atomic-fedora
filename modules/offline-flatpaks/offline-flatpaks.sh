@@ -22,11 +22,14 @@ echo "Install List: ${INSTALL[@]}"
 echo "Making offline-flatpaks directory"
 mkdir -p /usr/share/tylers-os/offline-flatpaks
 
-echo "Running `flatpak remote-add --if-not-exists \"$REPO_NAME\" \"$REPO_URL\"`"
+echo "Adding flathub as flatpak remote"
 flatpak remote-add --if-not-exists "$REPO_NAME" "$REPO_URL"
 
-echo "Running `flatpak remote-modify --collection-id=\"$COLLECTION_ID\" \"$REPO_NAME\"`"
+echo "Installing packages from install list"
+flatpak install --assumeyes "${INSTALL[@]}"
+
+echo "Modifying flathub remote"
 flatpak remote-modify --collection-id="$COLLECTION_ID" "$REPO_NAME"
 
-echo "Running `flatpak create-usb /usr/share/tylers-os/offline-flatpaks \"${INSTALL[@]}\"`"
+echo "Creating offline flatpak repo"
 flatpak create-usb /usr/share/tylers-os/offline-flatpaks "${INSTALL[@]}"
