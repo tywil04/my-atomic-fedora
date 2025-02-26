@@ -25,6 +25,7 @@ modules:
       - toolbox
 
   - type: offline-flatpaks
+    source: local
     install:
       - app.zen_browser.zen
       - re.sonny.Commit
