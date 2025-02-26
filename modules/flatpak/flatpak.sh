@@ -34,11 +34,6 @@ for APP in ${INSTALL[@]}; do
     echo $APP >> "/usr/share/tylers-os/flatpak/install-list"
 done
 
-echo "Hashing install list"
-$INSTALL_LIST_HASH=$(sha256sum "/usr/share/tylers-os/flatpak/install-list" | awk '{ print $1 }')
-echo $INSTALL_LIST_HASH > "/usr/share/tylers-os/flatpak/install-list-hash"
-echo > "/usr/share/tylers-os/flatpak/install-list-hash-old"
-
 echo "Enabling post rebase service"
 systemctl enable -f tylers-os-flatpak-setup.service
 
