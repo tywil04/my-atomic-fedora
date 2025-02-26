@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+mapfile -t INSTALL < "/usr/share/tylers-os/offline-flatpaks/install-list"
 FEDORA_FLATPAK_APPS=$(flatpak list --app --columns=application --runtime | grep 'fedora')
 
 for APP in $FEDORA_FLATPAK_APPS; do
@@ -8,3 +9,7 @@ for APP in $FEDORA_FLATPAK_APPS; do
 done
 
 flatpak remote-delete fedora
+
+for APP in $INSTALL; do 
+    flatpak install --user --assumeyes --sideload-repo="/usr/share/tylers-os/offline-flatpaks/.ostree/repo"
+done
