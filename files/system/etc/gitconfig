@@ -15,4 +15,4 @@
   defaultBranch = main
 
 [re.sonny.Commit]
-  auto-capitalize-title=false
+  auto-capitalize-title = false
