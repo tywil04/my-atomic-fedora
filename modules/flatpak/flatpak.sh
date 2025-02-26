@@ -7,19 +7,11 @@ get_json_array INSTALL "try .install[]" "$1"
 
 echo "Install List: ${INSTALL[@]}"
 
-echo "Making flatpak directory"
+echo "Making directory for storage"
 mkdir -p "/usr/share/tylers-os/flatpak/offline-repo"
 
-echo "Making flatpak installation directoy"
-mkdir -p "/etc/flatpak/installations.d"
-
-echo "Copying flatpak installation"
-cp -r "$MODULE_DIRECTORY/flatpak/tylers-os-flatpak-installation" "/etc/flatpak/installations.d/tylers-os-flatpak-installation"
-
-echo "Setting up setup script and service"
-cp -r "$MODULE_DIRECTORY/flatpak/tylers-os-flatpak-setup" "/usr/bin/tylers-os-flatpak-setup"
-chmod +x "/usr/bin/tylers-os-flatpak-setup"
-cp -r "$MODULE_DIRECTORY/flatpak/tylers-os-flatpak-setup.service" "/usr/lib/systemd/system/tylers-os-flatpak-setup.service"
+echo "Copying files"
+cp -r "$MODULE_DIRECTORY/flatpak/files/*" "/"
 
 echo "Adding flathub as flatpak remote"
 flatpak remote-add --if-not-exists "flathub" "https://dl.flathub.org/repo/flathub.flatpakrepo"
