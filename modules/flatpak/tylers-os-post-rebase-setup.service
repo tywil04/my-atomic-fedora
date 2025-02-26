@@ -1,11 +1,11 @@
 [Unit]
-Description=Post Rebase Setup (System)
+Description=Post Rebase Setup
 Wants=network-online.target
 After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/tylers-os-system-post-rebase-setup
+ExecStart=/usr/bin/tylers-os-post-rebase-setup
 
 [Install]
 WantedBy=multi-user.target
