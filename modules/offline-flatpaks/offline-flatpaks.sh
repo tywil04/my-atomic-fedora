@@ -6,7 +6,8 @@ set -euo pipefail
 CONFIG_FILE=$1
 get_json_array INSTALL "try .install[]" "$CONFIG_FILE"
 
+mkdir -p /usr/share/tylers-os/offline-flatpaks
+
 flatpak remote-modify --collection-id=org.flathub.Stable flathub
 
 flatpak create-usb /usr/share/tylers-os/offline-flatpaks "${INSTALL[@]}"
-
