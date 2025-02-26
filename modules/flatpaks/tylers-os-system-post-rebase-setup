@@ -8,3 +8,5 @@ for APP in $FEDORA_FLATPAK_APPS; do
 done
 
 flatpak remote-delete fedora
+
+systemctl disable -f tylers-os-system-post-rebase-setup.service
