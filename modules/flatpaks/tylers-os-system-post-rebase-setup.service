@@ -7,3 +7,6 @@ After=network-online.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/tylers-os-system-post-rebase-setup
+
+[Install]
+WantedBy=multi-user.target
