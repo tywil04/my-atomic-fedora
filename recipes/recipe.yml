@@ -27,7 +27,7 @@ modules:
       - firefox-langpacks
       - toolbox
 
-  - type: offline-flatpaks
+  - type: flatpaks
     source: local
     install:
       - app.zen_browser.zen
@@ -35,18 +35,18 @@ modules:
       - org.gtk.Gtk3theme.adw-gtk3 
       - org.gtk.Gtk3theme.adw-gtk3-dark
 
-  - type: default-flatpaks
-    notify: false # Send notification after install/uninstall is finished (true/false)
-    system:
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
-      repo-title: FlatHub
-      install:
-        - app.zen_browser.zen
-        - re.sonny.Commit
-        - org.gtk.Gtk3theme.adw-gtk3 
-        - org.gtk.Gtk3theme.adw-gtk3-dark
-    user: {} # Also add Flathub user repo, but no user packages
+  # - type: default-flatpaks
+  #   notify: false # Send notification after install/uninstall is finished (true/false)
+  #   system:
+  #     repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  #     repo-name: flathub
+  #     repo-title: FlatHub
+  #     install:
+  #       - app.zen_browser.zen
+  #       - re.sonny.Commit
+  #       - org.gtk.Gtk3theme.adw-gtk3 
+  #       - org.gtk.Gtk3theme.adw-gtk3-dark
+  #   user: {} # Also add Flathub user repo, but no user packages
 
   - type: gschema-overrides
 
