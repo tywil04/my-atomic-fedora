@@ -3,11 +3,10 @@
 # Tell build process to exit if there are any errors.
 set -euo pipefail
 
-CONFIG_FILE=$1
-get_json_array INSTALL "try .install[]" "$CONFIG_FILE"
-REPO_URL=$(jq -r 'try .["repo-url"]' "$CONFIG_FILE")
-REPO_NAME=$(jq -r 'try .["repo-name"]' "$CONFIG_FILE")
-COLLECTION_ID=$(jq -r 'try .["collection-id"]' "$CONFIG_FILE")
+get_json_array INSTALL "try .install[]" "$1"
+REPO_URL=$(echo "$1" | jq -r 'try .["repo-url"]')
+REPO_NAME=$(echo "$1" | jq -r 'try .["repo-name"]')
+COLLECTION_ID=$(echo "$1" | jq -r 'try .["collection-id"]')
 
 mkdir -p /usr/share/tylers-os/offline-flatpaks
 
