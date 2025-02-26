@@ -1,0 +1,9 @@
+[Unit]
+Name=Tyler's OS Post Rebase Setup (User)
+Description=Post Rebase Setup
+Wants=network-online.target
+After=system-flatpak-setup.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/tylers-os-user-post-rebase-setup
