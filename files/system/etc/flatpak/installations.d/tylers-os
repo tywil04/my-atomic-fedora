@@ -1,0 +1,3 @@
+[Installation "tylers-os"]
+Location=/var/lib/tylers-os-flatpak
+StorageType=harddisk
