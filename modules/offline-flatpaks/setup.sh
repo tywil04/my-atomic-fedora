@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FEDORA_FLATPAK_APPS=$(flatpak list --app --columns=application --runtime | grep 'fedora')
 for APP in $FEDORA_FLATPAK_APPS; do
