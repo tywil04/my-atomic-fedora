@@ -1,11 +1,11 @@
 [Unit]
-Description=Post Rebase Setup
+Description=Tyler\'s OS Flatpak Setup
 Wants=network-online.target
 After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/tylers-os-post-rebase-setup
+ExecStart=/usr/bin/tylers-os-flatpak-setup
 
 [Install]
 WantedBy=multi-user.target
