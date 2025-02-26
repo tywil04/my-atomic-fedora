@@ -4,4 +4,10 @@ using TypeSpec.JsonSchema;
 @jsonSchema("/modules/offline-flatpaks-latest.json")
 model OfflineFlatpaksLatest {
   install: Array<string>;
+
+  `repo-url`?: string = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+  
+  `repo-name`?: string = "flathub";
+
+  `collection-id`?: string = "org.flathub.Stable";
 }
