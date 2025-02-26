@@ -1,6 +1,5 @@
 [Unit]
-Name=Tyler's OS Post Rebase Setup (System)
-Description=Post Rebase Setup
+Description=Post Rebase Setup (System)
 Wants=network-online.target
 After=network-online.target
 
