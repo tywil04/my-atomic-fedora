@@ -2,7 +2,7 @@
 Name=Tyler's OS Post Rebase Setup (System)
 Description=Post Rebase Setup
 Wants=network-online.target
-After=system-flatpak-setup.service
+After=network-online.target
 
 [Service]
 Type=oneshot
