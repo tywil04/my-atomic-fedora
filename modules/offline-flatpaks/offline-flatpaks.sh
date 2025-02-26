@@ -8,6 +8,12 @@ REPO_URL=$(echo "$1" | jq -r 'try .["repo-url"]')
 REPO_NAME=$(echo "$1" | jq -r 'try .["repo-name"]')
 COLLECTION_ID=$(echo "$1" | jq -r 'try .["collection-id"]')
 
+if [[ $REPO_URL == "null" || $REPO_NAME == "null" || $COLLECTION_ID == "null" ]]; then
+    REPO_URL="https://dl.flathub.org/repo/flathub.flatpakrepo"
+    REPO_NAME="flathub"
+    COLLECTION_ID="org.flathub.Stable"
+fi
+
 mkdir -p /usr/share/tylers-os/offline-flatpaks
 
 flatpak remote-add --if-not-exists $REPO_NAME $REPO_URL
