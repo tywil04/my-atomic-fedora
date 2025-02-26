@@ -8,9 +8,9 @@ get_json_array INSTALL "try .install[]" "$1"
 echo "Install List: ${INSTALL[@]}"
 
 echo "Setting up post rebase script and service"
-cp -r "$MODULE_DIRECTORY"/flatpak/tylers-os-post-rebase-setup /usr/bin/tylers-os-post-rebase-setup
-chmod +x /usr/bin/tylers-os-post-rebase-setup
-cp -r "$MODULE_DIRECTORY"/flatpak/tylers-os-post-rebase-setup.service /usr/lib/systemd/system/tylers-os-post-rebase-setup.service
+cp -r "$MODULE_DIRECTORY"/flatpak/tylers-os-flatpak-setup /usr/bin/tylers-os-flatpak-setup
+chmod +x /usr/bin/tylers-os-flatpak-setup
+cp -r "$MODULE_DIRECTORY"/flatpak/tylers-os-flatpak-setup.service /usr/lib/systemd/system/tylers-os-flatpak-setup.service
 
 sysctl kernel.unprivileged_userns_clone=1
 
@@ -34,7 +34,11 @@ for APP in ${INSTALL[@]}; do
     echo $APP >> "/usr/share/tylers-os/flatpak/install-list"
 done
 
+echo "Hashing install list"
+$INSTALL_LIST_HASH=$(sha256sum "/usr/share/tylers-os/flatpak/install-list" | awk '{ print $1 }')
+echo $INSTALL_LIST_HASH > "/usr/share/tylers-os/flatpak/install-list-hash"
+
 echo "Enabling post rebase service"
-systemctl enable -f tylers-os-post-rebase-setup.service
+systemctl enable -f tylers-os-flatpak-setup.service
 
 echo "Done"
