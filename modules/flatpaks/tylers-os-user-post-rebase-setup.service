@@ -1,6 +1,5 @@
 [Unit]
-Name=Tyler's OS Post Rebase Setup (User)
-Description=Post Rebase Setup
+Description=Post Rebase Setup (User)
 Wants=network-online.target
 After=system-flatpak-setup.service
 
