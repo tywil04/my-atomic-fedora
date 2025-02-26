@@ -24,13 +24,19 @@ modules:
       - firefox-langpacks
       - toolbox
 
+  - type: offline-flatpaks
+    install:
+      - app.zen_browser.zen
+      - re.sonny.Commit
+      - org.gtk.Gtk3theme.adw-gtk3 
+      - org.gtk.Gtk3theme.adw-gtk3-dark
+
   - type: default-flatpaks
     notify: false # Send notification after install/uninstall is finished (true/false)
-    repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-    repo-name: flathub
-    repo-title: FlatHub
     system:
-      # If no repo information is specified, Flathub will be used by default
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      repo-title: FlatHub
       install:
         - app.zen_browser.zen
         - re.sonny.Commit
