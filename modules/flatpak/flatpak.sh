@@ -21,8 +21,6 @@ cp -r "$MODULE_DIRECTORY/flatpak/tylers-os-flatpak-setup" "/usr/bin/tylers-os-fl
 chmod +x "/usr/bin/tylers-os-flatpak-setup"
 cp -r "$MODULE_DIRECTORY/flatpak/tylers-os-flatpak-setup.service" "/usr/lib/systemd/system/tylers-os-flatpak-setup.service"
 
-sysctl kernel.unprivileged_userns_clone=1
-
 echo "Adding flathub as flatpak remote"
 flatpak remote-add --if-not-exists "flathub" "https://dl.flathub.org/repo/flathub.flatpakrepo"
 
