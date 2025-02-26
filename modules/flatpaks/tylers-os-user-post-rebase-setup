@@ -5,3 +5,5 @@ mapfile -t INSTALL < "/usr/share/tylers-os/flatpaks/install-list"
 for APP in $INSTALL; do 
     flatpak install --user --assumeyes --sideload-repo="/usr/share/tylers-os/flatpaks/offline-repo/.ostree/repo"
 done
+
+systemctl disable -f --global tylers-os-user-post-rebase-setup.service
