@@ -11,7 +11,7 @@ echo "Making directory for storage"
 mkdir -p "/usr/share/tylers-os/flatpak/offline-repo"
 
 echo "Copying files"
-cp -r "$MODULE_DIRECTORY/flatpak/files/*" "/"
+cp -r "$MODULE_DIRECTORY/flatpak/files" "/"
 
 echo "Adding flathub as flatpak remote"
 flatpak remote-add --if-not-exists "flathub" "https://dl.flathub.org/repo/flathub.flatpakrepo"
