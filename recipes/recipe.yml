@@ -27,7 +27,7 @@ modules:
       - firefox-langpacks
       - toolbox
 
-  - type: flatpaks
+  - type: flatpak
     source: local
     install:
       - app.zen_browser.zen
