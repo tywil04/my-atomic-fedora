@@ -2,7 +2,9 @@ import "@typespec/json-schema";
 using TypeSpec.JsonSchema;
 
 @jsonSchema("/modules/offline-flatpaks-latest.json")
-model OfflineFlatpaksLatest {
+model OfflineFlatpaksModuleLatest {
+  type: "offline-flatpaks" | "offline-flatpaks@latest";
+
   install: Array<string>;
 
   `repo-url`?: string = "https://dl.flathub.org/repo/flathub.flatpakrepo";
