@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 if diff -q "/usr/share/tylers-os/flatpak/install-list-hash" "/usr/share/tylers-os/flatpak/install-list-hash-old" > /dev/null; then
-    echo "install list hash and install list hash (old) are the same, nothing has changed"
+    echo "install list hash and install list hash old are the same, nothing has changed"
 else
+    echo "install list hash and install list hash old are different, installing items in list"
+
     mapfile -t INSTALL < "/usr/share/tylers-os/flatpak/install-list"
     
     flatpak remote-modify --collection-id="org.flathub.Stable" "flathub"
