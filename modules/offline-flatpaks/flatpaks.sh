@@ -3,8 +3,6 @@
 # Tell build process to exit if there are any errors.
 set -euo pipefail
 
-OUTPUT_DIR="/usr/share/tylers-os/offline-flatpaks"
-
 get_json_array INSTALL "try .install[]" "$1"
 REPO_URL=$(echo "$1" | jq -r 'try .["repo-url"]')
 REPO_NAME=$(echo "$1" | jq -r 'try .["repo-name"]')
@@ -21,8 +19,8 @@ echo "Repo Name: $REPO_NAME"
 echo "Collection ID: $COLLECTION_ID"
 echo "Install List: ${INSTALL[@]}"
 
-echo "Making offline-flatpaks directory"
-mkdir -p "$OUTPUT_DIR"
+echo "Making flatpaks directory"
+mkdir -p "/usr/share/tylers-os/flatpaks"
 
 echo "Adding flathub as flatpak remote"
 flatpak remote-add --if-not-exists "$REPO_NAME" "$REPO_URL"
@@ -34,11 +32,11 @@ echo "Modifying flathub remote"
 flatpak remote-modify --collection-id="$COLLECTION_ID" "$REPO_NAME"
 
 echo "Creating offline flatpak repo"
-flatpak create-usb "$OUTPUT_DIR" "${INSTALL[@]}"
+flatpak create-usb "/usr/share/tylers-os/flatpaks/offline-repo" "${INSTALL[@]}"
 
 echo "Saving install list for post rebase setup"
 for $APP in $INSTALL; do
-    echo $APP >> "$OUTPUT_DIR/install-list"
+    echo $APP >> "/usr/share/tylers-os/flatpaks/install-list"
 done
 
 echo "Done"
