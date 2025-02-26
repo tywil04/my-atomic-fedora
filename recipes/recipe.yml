@@ -18,6 +18,7 @@ modules:
       - distrobox
       - libsecret
       - git-credential-libsecret
+      - adw-gtk3-theme
     remove:
       - firefox
       - firefox-langpacks
@@ -30,6 +31,8 @@ modules:
       install:
         - app.zen_browser.zen
         - re.sonny.Commit
+        - org.gtk.Gtk3theme.adw-gtk3 
+        - org.gtk.Gtk3theme.adw-gtk3-dark
     user: {} # Also add Flathub user repo, but no user packages
 
   - type: gschema-overrides
