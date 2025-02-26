@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 
-if diff -q "/usr/share/tylers-os/flatpak/install-list-hash" "/usr/share/tylers-os/flatpak/install-list-hash-old" > /dev/null; then
-    echo "install list hash and install list hash old are the same, nothing has changed"
-else
-    echo "install list hash and install list hash old are different, installing items in list"
+mapfile -t INSTALL < "/usr/share/tylers-os/flatpak/install-list"
 
-    mapfile -t INSTALL < "/usr/share/tylers-os/flatpak/install-list"
-    
-    flatpak remote-modify --collection-id="org.flathub.Stable" "flathub"
-    
-    for APP in ${INSTALL[@]}; do 
-        flatpak install --assumeyes --noninteractive --sideload-repo="/usr/share/tylers-os/flatpak/offline-repo/.ostree/repo" flathub $APP
-    done
+flatpak remote-modify --collection-id="org.flathub.Stable" "flathub"
 
-    cat "/usr/share/tylers-os/flatpak/install-list-hash" > "/usr/share/tylers-os/flatpak/install-list-hash-old"
-fi
+for APP in ${INSTALL[@]}; do 
+    flatpak install --assumeyes --noninteractive --sideload-repo="/usr/share/tylers-os/flatpak/offline-repo/.ostree/repo" flathub $APP
+done
+
+systemctl disable -f tylers-os-flatpak-setup.service
