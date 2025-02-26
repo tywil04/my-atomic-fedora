@@ -5,7 +5,7 @@ mapfile -t INSTALL < "/usr/share/tylers-os/flatpak/install-list"
 flatpak remote-modify --collection-id="org.flathub.Stable" "flathub"
 
 for APP in ${INSTALL[@]}; do
-    flatpak install --assumeyes --noninteractive --installation="tylers-os" --sideload-repo="/usr/share/tylers-os/flatpak/offline-repo/.ostree/repo" "flathub" "$APP"
+    flatpak install --assumeyes --noninteractive --installation="tylers-os" --sideload-repo="/usr/share/tylers-os/flatpak/offline-repo" "flathub" "$APP"
 done
 
 systemctl disable -f tylers-os-flatpak-setup.service
