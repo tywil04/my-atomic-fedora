@@ -14,15 +14,19 @@ if [[ $REPO_URL == "null" || $REPO_NAME == "null" || $COLLECTION_ID == "null" ]]
     COLLECTION_ID="org.flathub.Stable"
 fi
 
-echo "Offline Flatpaks: Repo URL = $REPO_URL"
-echo "Offline Flatpaks: Repo Name = $REPO_NAME"
-echo "Offline Flatpaks: Collection Id = $COLLECTION_ID"
-echo "Offline Flatpaks: Install List = $INSTALL"
+echo "Repo URL: $REPO_URL"
+echo "Repo Name: $REPO_NAME"
+echo "Collection ID: $COLLECTION_ID"
+echo "Install List: ${INSTALL[@]}"
 
+echo "Making offline-flatpaks directory"
 mkdir -p /usr/share/tylers-os/offline-flatpaks
 
+echo "Running `flatpak remote-add --if-not-exists \"$REPO_NAME\" \"$REPO_URL\"`"
 flatpak remote-add --if-not-exists "$REPO_NAME" "$REPO_URL"
 
+echo "Running `flatpak remote-modify --collection-id=\"$COLLECTION_ID\" \"$REPO_NAME\"`"
 flatpak remote-modify --collection-id="$COLLECTION_ID" "$REPO_NAME"
 
+echo "Running `flatpak create-usb /usr/share/tylers-os/offline-flatpaks \"${INSTALL[@]}\"`"
 flatpak create-usb /usr/share/tylers-os/offline-flatpaks "${INSTALL[@]}"
