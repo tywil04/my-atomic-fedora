@@ -1,9 +1,0 @@
-[Unit]
-Name=Post Rebase Setup
-Description=Remove all fedora flatpaks, the fedora flatpak repo and install requested apps from offline repo.
-Wants=network-online.target
-After=system-flatpak-setup.service
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/post-rebase-setup
