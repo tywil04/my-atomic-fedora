@@ -14,19 +14,19 @@ if [[ $REPO_URL == "null" || $REPO_NAME == "null" || $COLLECTION_ID == "null" ]]
     COLLECTION_ID="org.flathub.Stable"
 fi
 
+echo "Repo URL: $REPO_URL"
+echo "Repo Name: $REPO_NAME"
+echo "Collection ID: $COLLECTION_ID"
+echo "Install List: ${INSTALL[@]}"
+
 echo "Setting up post rebase scripts and services"
 cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-system-post-rebase-setup /usr/bin/tylers-os-system-post-rebase-setup
 cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-user-post-rebase-setup /usr/bin/tylers-os-user-post-rebase-setup
 cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-system-post-rebase-setup.service /usr/lib/systemd/system/tylers-os-system-post-rebase-setup.service
 cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-user-post-rebase-setup.service /usr/lib/systemd/user/tylers-os-user-post-rebase-setup.service
 
-echo "Repo URL: $REPO_URL"
-echo "Repo Name: $REPO_NAME"
-echo "Collection ID: $COLLECTION_ID"
-echo "Install List: ${INSTALL[@]}"
-
 echo "Making flatpaks directory"
-mkdir -p "/usr/share/tylers-os/flatpaks"
+mkdir -p "/usr/share/tylers-os/flatpaks/offline-repo"
 
 echo "Adding flathub as flatpak remote"
 flatpak remote-add --if-not-exists "$REPO_NAME" "$REPO_URL"
