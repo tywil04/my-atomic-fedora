@@ -17,7 +17,7 @@ fi
 cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-system-post-rebase-setup /usr/bin/tylers-os-system-post-rebase-setup
 cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-user-post-rebase-setup /usr/bin/tylers-os-user-post-rebase-setup
 cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-system-post-rebase-setup.service /usr/lib/systemd/system/tylers-os-system-post-rebase-setup.service
-cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-user-post-rebase-setup.service /usr/lib/systemd/system/tylers-os-user-post-rebase-setup.service
+cp -r "$MODULE_DIRECTORY"/flatpaks/tylers-os-user-post-rebase-setup.service /usr/lib/systemd/user/tylers-os-user-post-rebase-setup.service
 
 echo "Repo URL: $REPO_URL"
 echo "Repo Name: $REPO_NAME"
