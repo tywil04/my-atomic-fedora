@@ -41,12 +41,12 @@ echo "Creating offline flatpak repo"
 flatpak create-usb "/usr/share/tylers-os/flatpaks/offline-repo" "${INSTALL[@]}"
 
 echo "Saving install list for post rebase setup"
-for $APP in $INSTALL; do
+for APP in $INSTALL; do
     echo $APP >> "/usr/share/tylers-os/flatpaks/install-list"
 done
 
 echo "Enabling post rebase services"
-systemctl enable -f stylers-os-system-post-rebase-setup.service
+systemctl enable -f tylers-os-system-post-rebase-setup.service
 systemctl enable -f --global tylers-os-user-post-rebase-setup.service
 
 echo "Done"
